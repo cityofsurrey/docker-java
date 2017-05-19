@@ -1,7 +1,9 @@
 FROM openjdk:8-alpine
 
+ENV TZ=America/Vancouver
+
 # Install development packages
-RUN apk add --no-cache --update bash curl git openssh unzip && \
+RUN apk add --no-cache --update bash curl git openssh unzip tzdata && \
     rm -rf /var/cache/apk/*
 
 # Install Gradle
@@ -14,5 +16,5 @@ RUN cd /usr/lib && \
     rm "gradle-bin.zip"
 
 # Set environmental variables
-ENV GRADLE_HOME /usr/lib/gradle
-ENV PATH $PATH:$GRADLE_HOME/bin
+ENV GRADLE_HOME=/usr/lib/gradle
+ENV PATH=$PATH:$GRADLE_HOME/bin
