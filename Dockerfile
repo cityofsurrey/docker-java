@@ -1,4 +1,4 @@
-FROM openjdk:8-alpine
+FROM openjdk:8u131-jdk-alpine
 
 ENV TZ=America/Vancouver
 
